@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emergency Contacts</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0e1117;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+    /* ===== NAVBAR ===== */
+    header {
+      background: #1c1f26;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #2a2f3a;
+    }
+    header strong {
+      font-size: 20px;
+      color: #1e90ff;
+      display: flex;
+      align-items: center;
+    }
+    header strong::before {
+      content: "🌍 ";
+      margin-right: 6px;
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #525252;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #1e90ff;
+    }
+    nav a.active {
+      color: #89242c;
+    }
+
+    /* ===== PAGE CONTENT ===== */
+    h1 {
+      text-align: center;
+      margin: 40px 0;
+      color: #a63e47;
+    }
+    #searchBar {
+      display: block;
+      margin: 0 auto 30px auto;
+      padding: 30px;
+      width: 60%;
+      max-width: 600px;
+      border: 2px solid #1660ab;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+    }
+    .contacts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      padding: 20px;
+    }
+    .card {
+      background: #1c1f26;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(204, 142, 142, 0.615);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+    }
+    .card h3 {
+      margin: 10px;
+      color: hsl(210, 9%, 52%);
+    }
+    .card p {
+      margin: 15px 0;
+      color: #ddd;
+    }
+    .card p a {
+      color: #cc1515;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .card p a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <strong>Disaster Info Hub</strong>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="submit.html">Submit</a>
+      <a href="alerts.html">Alerts</a>
+      <a href="contact.html" class="active">Contacts</a>
+      <a href="request-list.html">Requests</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Page Title -->
+  <h1>📞 Emergency Contacts</h1>
+  <input type="text" id="searchBar" placeholder="🔍 Search contacts...">
+
+  <!-- Contacts -->
+  <div class="contacts" id="contactsList">
+    <div class="card">
+      <h3>🚓 Police</h3>
+      <p>📍 Location: City HQ</p>
+      <p>📞 <a href="tel:100">100</a></p>
+    </div>
+    <div class="card">
+      <h3>🔥 Fire Department</h3>
+      <p>📍 Location: Central Station</p>
+      <p>📞 <a href="tel:101">101</a></p>
+    </div>
+    <div class="card">
+      <h3>🚑 Ambulance</h3>
+      <p>📍 Location: Civil Hospital</p>
+      <p>📞 <a href="tel:102">102</a></p>
+    </div>
+    <div class="card">
+      <h3>🌪️ Disaster Helpline</h3>
+      <p>📍 Location: National Center</p>
+      <p>📞 <a href="tel:10968">1096</a></p>
+    </div>
+    <div class="card">
+      <h3>👩 Women Helpline</h3>
+      <p>📍 Location: State HQ</p>
+      <p>📞 <a href="tel:1091">1091</a></p>
+    </div>
+    <div class="card">
+      <h3>👶 Child Helpline</h3>
+      <p>📍 Location: Child Care Center</p>
+      <p>📞 <a href="tel:1098">1098</a></p>
+    </div>
+    <div class="card">
+      <h3>🩸 Blood Bank</h3>
+      <p>📍 Location: Red Cross</p>
+      <p>📞 <a href="tel:104">104</a></p>
+    </div>
+    <div class="card">
+      <h3>📞 National Emergency Number</h3>
+      <p>📍 Location: India</p>
+      <p>📞 <a href="tel:112">112</a></p>
+    </div>
+    <div class="card">
+      <h3>🏥medical emergency</h3>
+      <p>📍 Location: multi state</p>
+      <p>📞 <a href="tel:108">108</a></p>
+    </div>
+  </div>
+
+  <script>
+    const searchBar = document.getElementById("searchBar");
+    const contacts = document.querySelectorAll(".card");
+
+    searchBar.addEventListener("keyup", () => {
+      const text = searchBar.value.toLowerCase();
+      contacts.forEach(card => {
+        const name = card.querySelector("h3").textContent.toLowerCase();
+        card.style.display = name.includes(text) ? "block" : "none";
+      });
+    });
+  </script>
+  <footer>© 2025 🌍 Local Disaster Info Hub | Built with 💖 by Disha</footer>
+</body>
+</html>

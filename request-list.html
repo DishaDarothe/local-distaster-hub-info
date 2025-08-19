@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Help Requests</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Container ek hi column */
+    .requests-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* Card style */
+    .request-card {
+      background:#1c1f25;
+      color: white;
+      border-radius: 12px;
+      padding: 25px;
+      font-size: 18px;
+      box-shadow: 0 4px 10px #1c1f25;
+      transition: transform 0.2s ease-in-out;
+    }
+    .request-card:hover {
+      transform: scale(1.02);
+    }
+    .request-card h3 {
+      margin: 0 0 15px;
+      font-size: 22px;
+      color: #4da6ff;
+    }
+    .request-card p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>🌍 Disaster Info Hub</strong>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="submit.html">Submit</a>
+      <a href="alerts.html">Alerts</a>
+      <a href="contact.html">Contacts</a>
+      <a href="request-list.html">Requests</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="text-align:center; color:#4da6ff;">📌 All Help Requests</h1>
+    <div id="requests" class="requests-container"></div>
+  </main>
+
+  <script>
+    async function loadRequests() {
+      try {
+        const res = await fetch("http://localhost:5000/api/help");
+        const data = await res.json();
+
+        const list = document.getElementById("requests");
+        list.innerHTML = "";
+
+        if (data.length === 0) {
+          list.innerHTML = "<p style='text-align:center;'>No requests yet.</p>";
+          return;
+        }
+
+        data.forEach(r => {
+          const card = document.createElement("div");
+          card.className = "request-card";
+          card.innerHTML = `
+            <h3>${r.name}</h3>
+            <p><strong>📍 Location:</strong> ${r.location}</p>
+            <p><strong>🆘 Request:</strong> ${r.request}</p>
+          `;
+          list.appendChild(card);
+        });
+      } catch (err) {
+        console.error("Error loading requests:", err);
+      }
+    }
+
+    loadRequests();
+  </script>
+  <footer>© 2025 🌍 Local Disaster Info Hub | Built with 💖 by Disha</footer>
+</body>
+</html>

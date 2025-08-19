@@ -1,0 +1,120 @@
+:root{
+  --bg:#0e1117; --card:#2a313b94; --muted:#8b949e; --text:#8babc8;
+  
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,Segoe UI,Arial,sans-serif}
+a{color:var(--text);text-decoration:none;opacity:.9} a:hover{opacity:1}
+header{position:sticky;top:0;z-index:5;background:#1c1f26;border-bottom:1px solid var(--border);padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+header nav a{margin-left:14px}
+.container{max-width:960px;margin:24px auto;padding:0 16px}
+
+/* cards & inputs */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+input,textarea,select,button{width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:var(--card);color:var(--text);outline:none}
+button{background:var(--primary);cursor:pointer;border:none}
+button:hover{filter:brightness(1.1)}
+.meta{color:var(--muted);font-size:.9rem}
+.center{display:flex;align-items:center;justify-content:center}
+.small{max-width:520px;margin:0 auto}
+.status{min-height:1.2rem;margin-top:6px;color:var(--ok)}
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;border:1px solid var(--border);font-size:.75rem;margin-right:6px}
+.badge.critical{background:rgba(248,81,73,.25);border-color:#f85149}
+.badge.high{background:rgba(248,81,73,.15);border-color:#f85149}
+.badge.medium{background:rgba(240,136,62,.15);border-color:#f0883e}
+.badge.low{background:rgba(63,185,80,.15);border-color:#3fb950}
+footer{border-top:1px solid var(--border);margin-top:24px;padding:20px;color:var(--muted);text-align:center}
+/* Container */
+.container {
+  max-width: 600px;        /* Desktop pe bada */
+  width: 90%;              /* Mobile pe responsive */
+  margin: 60px auto;       /* Center with spacing */
+  padding: 20px;
+}
+
+/* Card / Form box */
+form.card {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Heading */
+h2.center {
+  text-align: center;
+  color: #4c93db;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* Input + Textarea */
+form.card input,
+form.card textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #1e1e1e;
+  color: white;
+  outline: none;
+}
+
+form.card input::placeholder,
+form.card textarea::placeholder {
+  color: #aaa;
+}
+
+form.card textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Button */
+form.card button {
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #4da6ff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form.card button:hover {
+  background: #6283a8;
+}
+
+/* Status message */
+.status {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* ✅ Mobile Friendly */
+@media (max-width: 600px) {
+  .container {
+    margin: 30px auto;
+    padding: 15px;
+  }
+  form.card {
+    padding: 20px;
+  }
+  h2.center {
+    font-size: 20px;
+  }
+  form.card input,
+  form.card textarea,
+  form.card button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}

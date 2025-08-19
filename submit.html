@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Submit Help Request</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <strong>🌍 Disaster Info Hub</strong>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="submit.html">Submit</a>
+    <a href="alerts.html">Alerts</a>
+    <a href="contact.html">Contacts</a>
+     <a href="request-list.html">Requests</a>
+    <a href="about.html">About</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2 class="center">Submit a Help Request</h2>
+  <form id="helpForm" class="card small">
+    <input id="name" placeholder="Your name" required />
+    <input id="location" placeholder="Location (city/area)" required />
+    <textarea id="help" rows="4" placeholder="Describe what you need" required></textarea>
+    <button type="submit">Submit</button>
+    <div id="msg" class="status"></div>
+  </form>
+</div>
+
+<script>
+  document.querySelector("form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      name: document.querySelector("input[placeholder='Your name']").value,
+      location: document.querySelector("input[placeholder='Location (city/area)']").value,
+      message: document.querySelector("textarea").value   // use `message` (same as backend)
+    };
+
+    try {//127.0
+      const res = await fetch("http://127.0.0.1:5000/api/help", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (!res.ok) throw new Error("Server error");
+
+      const result = await res.json();
+
+      // ✅ Show success popup
+      alert("Help request received successfully!");
+
+      // ✅ Redirect to request list after OK
+      window.location.href = "request-list.html";
+
+    } catch (err) {
+      alert("⚠ Server not responding, please try later.");
+      console.error(err);
+    }
+  });
+</script>
+<footer>© 2025 🌍 Local Disaster Info Hub | Built with 💖 by Disha</footer>
+</body>
+</html>

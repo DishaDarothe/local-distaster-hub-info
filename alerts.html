@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disaster Alerts</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Grid layout for all alerts */
+    .alerts-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 100px;
+      padding: 20px;
+    }
+
+    /* Alert card style */
+    .alert-box {
+      border: 1px solid #a88484;
+      border-radius: 10px;
+      padding: 40px;
+      background: #1e1e2e;
+      color: #fff;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .alert-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0px 4px 12px rgba(121, 96, 96, 0.3);
+    }
+
+    /* Title */
+    .alert-box h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    /* Description */
+    .alert-box p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #ccc;
+    }
+
+    /* Section heading */
+    h2.section-title {
+      margin: 30px 20px 10px;
+      font-size: 1.4rem;
+      color: #e74c3c;
+    }
+
+    @media (max-width: 600px) {
+      .alert-box {
+        padding: 14px;
+      }
+      .alert-box h2 {
+        font-size: 1rem;
+      }
+      .alert-box p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🚨 Disaster Alerts</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="submit.html">Submit</a>
+      <a href="alerts.html">Alerts</a>
+      <a href="contact.html">Contacts</a>
+      <a href="request-list.html">Requests</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Recent Alerts -->
+  <section class="alerts-container">
+    <div class="alert-box">
+      <h2>⚡ Power Outage Alert</h2>
+      <p>Major power outage expected in <b>Downtown Area</b> due to heavy rains.</p>
+    </div>
+
+    <div class="alert-box">
+      <h2>🌊 Flood Warning</h2>
+      <p>River water levels rising in <b>Riverside Colony</b>. Evacuation advised.</p>
+    </div>
+
+    <div class="alert-box">
+      <h2>🔥 Fire Alert</h2>
+      <p>Forest fire spreading near <b>Hillside Region</b>. Avoid the area.</p>
+    </div>
+
+    <div class="alert-box">
+      <h2>🌍 Earthquake Alert</h2>
+      <p>Tremors recorded in nearby regions.</p>
+    </div>
+  </section>
+
+  <!-- Active Alerts -->
+  <h2 class="section-title">🚨 Active Alerts</h2>
+  <section class="alerts-container">
+    <div class="alert-box">
+      <h2>🌊 Flood Alert</h2>
+      <p>Heavy rainfall expected in coastal regions.</p>
+    </div>
+
+    <div class="alert-box">
+      <h2>🌀 Cyclone Alert</h2>
+      <p>Strong winds expected. Stay indoors.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 🌍 Local Disaster Info Hub | Built with 💖 by Disha
+  </footer>
+
+</body>
+</html>
